@@ -1,0 +1,395 @@
+{
+    "result": "success",
+    "data": [
+        {
+            "id": "01",
+            "text": "Hà Nội",
+            "IdTinh": 0,
+            "Ma_tinh": "01"
+        },
+        {
+            "id": "02",
+            "text": "Tp. Hồ Chí Minh",
+            "IdTinh": 0,
+            "Ma_tinh": "02"
+        },
+        {
+            "id": "03",
+            "text": "Hải Phòng",
+            "IdTinh": 0,
+            "Ma_tinh": "03"
+        },
+        {
+            "id": "04",
+            "text": "Đà Nẵng",
+            "IdTinh": 0,
+            "Ma_tinh": "04"
+        },
+        {
+            "id": "05",
+            "text": "Hà Giang",
+            "IdTinh": 0,
+            "Ma_tinh": "05"
+        },
+        {
+            "id": "06",
+            "text": "Cao Bằng",
+            "IdTinh": 0,
+            "Ma_tinh": "06"
+        },
+        {
+            "id": "07",
+            "text": "Lai Châu",
+            "IdTinh": 0,
+            "Ma_tinh": "07"
+        },
+        {
+            "id": "08",
+            "text": "Lào Cai",
+            "IdTinh": 0,
+            "Ma_tinh": "08"
+        },
+        {
+            "id": "09",
+            "text": "Tuyên Quang",
+            "IdTinh": 0,
+            "Ma_tinh": "09"
+        },
+        {
+            "id": "10",
+            "text": "Lạng Sơn",
+            "IdTinh": 0,
+            "Ma_tinh": "10"
+        },
+        {
+            "id": "11",
+            "text": "Bắc Kạn",
+            "IdTinh": 0,
+            "Ma_tinh": "11"
+        },
+        {
+            "id": "12",
+            "text": "Thái Nguyên",
+            "IdTinh": 0,
+            "Ma_tinh": "12"
+        },
+        {
+            "id": "13",
+            "text": "Yên Bái",
+            "IdTinh": 0,
+            "Ma_tinh": "13"
+        },
+        {
+            "id": "14",
+            "text": "Sơn La",
+            "IdTinh": 0,
+            "Ma_tinh": "14"
+        },
+        {
+            "id": "15",
+            "text": "Phú Thọ",
+            "IdTinh": 0,
+            "Ma_tinh": "15"
+        },
+        {
+            "id": "16",
+            "text": "Vĩnh Phúc",
+            "IdTinh": 0,
+            "Ma_tinh": "16"
+        },
+        {
+            "id": "17",
+            "text": "Quảng Ninh",
+            "IdTinh": 0,
+            "Ma_tinh": "17"
+        },
+        {
+            "id": "18",
+            "text": "Bắc Giang",
+            "IdTinh": 0,
+            "Ma_tinh": "18"
+        },
+        {
+            "id": "19",
+            "text": "Bắc Ninh",
+            "IdTinh": 0,
+            "Ma_tinh": "19"
+        },
+        {
+            "id": "21",
+            "text": "Hải Dương",
+            "IdTinh": 0,
+            "Ma_tinh": "21"
+        },
+        {
+            "id": "22",
+            "text": "Hưng Yên",
+            "IdTinh": 0,
+            "Ma_tinh": "22"
+        },
+        {
+            "id": "23",
+            "text": "Hoà Bình",
+            "IdTinh": 0,
+            "Ma_tinh": "23"
+        },
+        {
+            "id": "24",
+            "text": "Hà Nam",
+            "IdTinh": 0,
+            "Ma_tinh": "24"
+        },
+        {
+            "id": "25",
+            "text": "Nam Định",
+            "IdTinh": 0,
+            "Ma_tinh": "25"
+        },
+        {
+            "id": "26",
+            "text": "Thái Bình",
+            "IdTinh": 0,
+            "Ma_tinh": "26"
+        },
+        {
+            "id": "27",
+            "text": "Ninh Bình",
+            "IdTinh": 0,
+            "Ma_tinh": "27"
+        },
+        {
+            "id": "28",
+            "text": "Thanh Hoá",
+            "IdTinh": 0,
+            "Ma_tinh": "28"
+        },
+        {
+            "id": "29",
+            "text": "Nghệ An",
+            "IdTinh": 0,
+            "Ma_tinh": "29"
+        },
+        {
+            "id": "30",
+            "text": "Hà Tĩnh",
+            "IdTinh": 0,
+            "Ma_tinh": "30"
+        },
+        {
+            "id": "31",
+            "text": "Quảng Bình",
+            "IdTinh": 0,
+            "Ma_tinh": "31"
+        },
+        {
+            "id": "32",
+            "text": "Quảng Trị",
+            "IdTinh": 0,
+            "Ma_tinh": "32"
+        },
+        {
+            "id": "33",
+            "text": "Thừa Thiên -Huế",
+            "IdTinh": 0,
+            "Ma_tinh": "33"
+        },
+        {
+            "id": "34",
+            "text": "Quảng Nam",
+            "IdTinh": 0,
+            "Ma_tinh": "34"
+        },
+        {
+            "id": "35",
+            "text": "Quảng Ngãi",
+            "IdTinh": 0,
+            "Ma_tinh": "35"
+        },
+        {
+            "id": "36",
+            "text": "Kon Tum",
+            "IdTinh": 0,
+            "Ma_tinh": "36"
+        },
+        {
+            "id": "37",
+            "text": "Bình Định",
+            "IdTinh": 0,
+            "Ma_tinh": "37"
+        },
+        {
+            "id": "38",
+            "text": "Gia Lai",
+            "IdTinh": 0,
+            "Ma_tinh": "38"
+        },
+        {
+            "id": "39",
+            "text": "Phú Yên",
+            "IdTinh": 0,
+            "Ma_tinh": "39"
+        },
+        {
+            "id": "40",
+            "text": "Đắk Lắk",
+            "IdTinh": 0,
+            "Ma_tinh": "40"
+        },
+        {
+            "id": "41",
+            "text": "Khánh Hoà",
+            "IdTinh": 0,
+            "Ma_tinh": "41"
+        },
+        {
+            "id": "42",
+            "text": "Lâm Đồng",
+            "IdTinh": 0,
+            "Ma_tinh": "42"
+        },
+        {
+            "id": "43",
+            "text": "Bình Phước",
+            "IdTinh": 0,
+            "Ma_tinh": "43"
+        },
+        {
+            "id": "44",
+            "text": "Bình Dương",
+            "IdTinh": 0,
+            "Ma_tinh": "44"
+        },
+        {
+            "id": "45",
+            "text": "Ninh Thuận",
+            "IdTinh": 0,
+            "Ma_tinh": "45"
+        },
+        {
+            "id": "46",
+            "text": "Tây Ninh",
+            "IdTinh": 0,
+            "Ma_tinh": "46"
+        },
+        {
+            "id": "47",
+            "text": "Bình Thuận",
+            "IdTinh": 0,
+            "Ma_tinh": "47"
+        },
+        {
+            "id": "48",
+            "text": "Đồng Nai",
+            "IdTinh": 0,
+            "Ma_tinh": "48"
+        },
+        {
+            "id": "49",
+            "text": "Long An",
+            "IdTinh": 0,
+            "Ma_tinh": "49"
+        },
+        {
+            "id": "50",
+            "text": "Đồng Tháp",
+            "IdTinh": 0,
+            "Ma_tinh": "50"
+        },
+        {
+            "id": "51",
+            "text": "An Giang",
+            "IdTinh": 0,
+            "Ma_tinh": "51"
+        },
+        {
+            "id": "52",
+            "text": "Bà Rịa-Vũng Tàu",
+            "IdTinh": 0,
+            "Ma_tinh": "52"
+        },
+        {
+            "id": "53",
+            "text": "Tiền Giang",
+            "IdTinh": 0,
+            "Ma_tinh": "53"
+        },
+        {
+            "id": "54",
+            "text": "Kiên Giang",
+            "IdTinh": 0,
+            "Ma_tinh": "54"
+        },
+        {
+            "id": "55",
+            "text": "Cần Thơ",
+            "IdTinh": 0,
+            "Ma_tinh": "55"
+        },
+        {
+            "id": "56",
+            "text": "Bến Tre",
+            "IdTinh": 0,
+            "Ma_tinh": "56"
+        },
+        {
+            "id": "57",
+            "text": "Vĩnh Long",
+            "IdTinh": 0,
+            "Ma_tinh": "57"
+        },
+        {
+            "id": "58",
+            "text": "Trà Vinh",
+            "IdTinh": 0,
+            "Ma_tinh": "58"
+        },
+        {
+            "id": "59",
+            "text": "Sóc Trăng",
+            "IdTinh": 0,
+            "Ma_tinh": "59"
+        },
+        {
+            "id": "60",
+            "text": "Bạc Liêu",
+            "IdTinh": 0,
+            "Ma_tinh": "60"
+        },
+        {
+            "id": "61",
+            "text": "Cà Mau",
+            "IdTinh": 0,
+            "Ma_tinh": "61"
+        },
+        {
+            "id": "62",
+            "text": "Điện Biên",
+            "IdTinh": 0,
+            "Ma_tinh": "62"
+        },
+        {
+            "id": "63",
+            "text": "Đăk Nông",
+            "IdTinh": 0,
+            "Ma_tinh": "63"
+        },
+        {
+            "id": "64",
+            "text": "Hậu Giang",
+            "IdTinh": 0,
+            "Ma_tinh": "64"
+        },
+        {
+            "id": "65",
+            "text": "Cục nhà trường",
+            "IdTinh": 0,
+            "Ma_tinh": "65"
+        },
+        {
+            "id": "99",
+            "text": "Khác",
+            "IdTinh": 0,
+            "Ma_tinh": "99"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "result": "success",
+    "data": [
+        {
+            "ten_tinh": "Cục nhà trường",
+            "ma_tinh": "65",
+            "data": {
+                "result": "success",
+                "data": [
+                    {
+                        "id": "65001",
+                        "text": "65001 - Trường Đại học văn hóa nghệ thuật Quân đội",
+                        "item": {
+                            "ID_truong": 6314,
+                            "Ma_tinh": null,
+                            "Ma_huyen": null,
+                            "Ma_truong": "65001",
+                            "Ten_truong": "65001 - Trường Đại học văn hóa nghệ thuật Quân đội",
+                            "Ten_tinh": null,
+                            "Dia_chi_truong": null,
+                            "ID_khu_vuc": 3,
+                            "Ma_truong_new": null
+                        }
+                    },
+                    {
+                        "id": "65002",
+                        "text": "65002 - Trường Cao đẳng nghề Số 8",
+                        "item": {
+                            "ID_truong": 6315,
+                            "Ma_tinh": null,
+                            "Ma_huyen": null,
+                            "Ma_truong": "65002",
+                            "Ten_truong": "65002 - Trường Cao đẳng nghề Số 8",
+                            "Ten_tinh": null,
+                            "Dia_chi_truong": null,
+                            "ID_khu_vuc": 2,
+                            "Ma_truong_new": null
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "ten_tinh": "Khác",
+            "ma_tinh": "99",
+            "data": {
+                "result": "success",
+                "data": []
+            }
+        }
+    ]
+}
