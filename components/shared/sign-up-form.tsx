@@ -160,7 +160,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="flex items-center text-secondary-backgroudPrimary">
-                      TÀI KHOẢN
+                      Email
                     </FormLabel>
                     <FormControl>
                       <Input type="text" {...field} />
@@ -204,7 +204,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="flex items-center text-secondary-backgroudPrimary">
-                      Link facebook
+                      LINK FACEBOOK
                     </FormLabel>
                     <FormControl>
                       <Input type="text" {...field} />
@@ -345,7 +345,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                 className="w-full bg-secondary-backgroudPrimary text-primary-backgroudPrimary hover:bg-yellow-300"
                 disabled={loading}
               >
-                {loading ? "Đang xử lý" : "ĐĂNG ký"}
+                {loading ? "Đang xử lý" : "ĐĂNG KÝ"}
               </Button>
 
               <div className="text-center text-sm">
