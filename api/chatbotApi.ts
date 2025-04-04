@@ -68,7 +68,7 @@ export const createApi = async (token: string) => {
 };
 
 
-export const chatMessagesApi = async (token: string, sessionId: number) => {
+export const chatMessagesApi = async (token: string | null, sessionId: number | null) => {
   return fetcher(
     `${endpoints.chat.chatMessages}/${sessionId}`,
     {
@@ -105,5 +105,14 @@ export const sendMessagesApi = async (
     body: formData,
   });
 };
+
+export const deleteChatHistoryApi = async(token: string,sessionId:number)=>{
+  return fetcher(`${endpoints.chat.deleteChatHistory}/${sessionId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
 
 

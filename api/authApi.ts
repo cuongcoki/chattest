@@ -75,3 +75,12 @@ export const registerApi = async (payload: RegisterType) => {
 };
 
 
+export const guestApi = async(user_agent : string) =>{
+  return fetcher(endpoints.auth.guest, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ user_agent })
+  });
+}
+
+

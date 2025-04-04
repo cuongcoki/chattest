@@ -35,18 +35,7 @@ const email = z
 const password = z
   .string()
   .min(8, { message: "Mật khẩu phải có ít nhất 8 ký tự" })
-  .refine((val) => /[a-z]/.test(val), {
-    message: "Mật khẩu phải chứa ít nhất một ký tự thường",
-  })
-  .refine((val) => /[A-Z]/.test(val), {
-    message: "Mật khẩu phải chứa ít nhất một ký tự hoa",
-  })
-  .refine((val) => /[0-9]/.test(val), {
-    message: "Mật khẩu phải chứa ít nhất một chữ số",
-  })
-  .refine((val) => /[\W_]/.test(val), {
-    message: "Mật khẩu phải chứa ít nhất một ký tự đặc biệt",
-  });
+  
 
 // Schema đăng ký
 export const SignUpSchema = z.object({

@@ -1,22 +1,24 @@
-import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import History from "@/components/chatbot/history";
+import InforExam from "@/components/chatbot/infor-exam";
+import CardVideo from "@/components/shared/card-video";
+import Footer from "@/components/shared/footer";
+import Header from "@/components/shared/header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
-      }
-    >
-      <AppSidebar />
-      <SidebarTrigger className= " p-2 -ml-1" />
-      <main className="flex-1 overflow-y-auto  shadow-2xl">
-        {children}
-      </main>
-    </SidebarProvider>
+    <main className="container mx-auto max-w-full shadow-2xl bg-blue-100 flex flex-col h-screen overflow-y-auto scrollbar-thin md:scrollbar-none scroll-smooth justify-between">
+      <Header />
+          <div className="px-4 py-1 flex flex-col md:flex-row gap-4">
+            <History />
+            <div className="w-full md:w-2/4  h-full bg-white rounded-lg p-4 shadow-md flex-grow">
+              {children}
+            </div>
+            <InforExam />
+          </div>
+          <div className="pt-2">
+            <CardVideo />
+          </div>
+      <Footer />
+    </main>
   );
 }
