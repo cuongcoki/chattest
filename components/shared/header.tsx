@@ -50,7 +50,7 @@ export default function Header() {
 
                 setTimeout(() => {
                     window.location.href = '/';
-                }, 5000);
+                }, 2000);
             }
         }, 1000);
 
