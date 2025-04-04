@@ -111,7 +111,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
   };
 
   return (
-    <div className={cn("relative flex flex-col gap-6 min-h-screen", className)}  {...props}>
+    <div className={cn("relative flex flex-col gap-6 min-h-screen", className)} {...props}>
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -124,15 +124,13 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
       </div>
 
       {/* Content with relative positioning to appear above background */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-4 py-8">
-
-        <Card className="overflow-hidden max-w-md w-full bg-white/95 backdrop-blur-sm">
-          <CardContent className="grid p-0">
-
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-4 py-8 overflow-auto">
+        <Card className="overflow-hidden max-w-md w-full bg-white/95 backdrop-blur-sm my-4">
+          <CardContent className="grid p-0 max-h-[80vh] overflow-y-auto">
             <Form {...form}>
-              <div className="flex flex-col items-center text-center pt-6 relative">
+              <div className="flex flex-col items-center text-center pt-6 relative sticky top-0 bg-white/95 backdrop-blur-sm z-10">
                 <Link href="/"><House className="p-1 absolute left-5 top-0 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-full shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out" /></Link>
-                <h1 className="text-2xl font-bold">CHÀO MỪNG ĐẾN VỚI</h1>
+                <h1 className="text-2xl font-bold ">CHÀO MỪNG ĐẾN VỚI</h1>
                 <p className="text-balance text-muted-foreground">HỆ THỐNG HỖ TRỢ HỌC TẬP</p>
               </div>
               <form
@@ -170,7 +168,6 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                     </FormItem>
                   )}
                 />
-
 
                 <FormField
                   control={form.control}
@@ -293,7 +290,6 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                   )}
                 />
 
-
                 <FormField
                   control={form.control}
                   name="ten_truong"
@@ -355,7 +351,6 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
 
                 <Button
                   type="submit"
-                  // className="w-full bg-secondary-backgroudPrimary text-primary-backgroudPrimary hover:bg-yellow-300 mt-2"
                   className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-md px-6 py-2 shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
                   disabled={loading}
                 >
@@ -370,7 +365,6 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                 </div>
               </form>
             </Form>
-
           </CardContent>
         </Card>
         <div className="text-balance text-center text-xs text-white font-medium [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">

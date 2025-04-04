@@ -103,7 +103,7 @@ export default function Home() {
       setIsLoading(true);
       if (!userAgent) throw new Error("Không thể xác định thiết bị");
 
-      const response = await guestApi("123");
+      const response = await guestApi(userAgent);
       const dataGuest: DataGuest = response as DataGuest;
       console.log("dataGuest", dataGuest);
 
