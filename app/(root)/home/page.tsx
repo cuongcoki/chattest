@@ -103,7 +103,7 @@ export default function Home() {
       setIsLoading(true);
       if (!userAgent) throw new Error("Không thể xác định thiết bị");
 
-      const response = await guestApi(userAgent);
+      const response = await guestApi("123");
       const dataGuest: DataGuest = response as DataGuest;
       console.log("dataGuest", dataGuest);
 
@@ -122,9 +122,11 @@ export default function Home() {
       setIsLoading(false);
     }
   };
+
   const handleChatbot = () => {
     router.push("/chatbot");
   };
+  
   return (
     <div className={cn("relative flex flex-col gap-6 min-h-screen")} >
       {/* Background image */}
@@ -145,44 +147,44 @@ export default function Home() {
           alt="Background"
           className="w-full max-w-[1000px] h-auto max-h-[230px]"
         />
-        <Card className="overflow-hidden max-w-md w-full bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg border-none">
+        <Card className="overflow-hidden max-w-md mx-auto w-full bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg border-none">
           <CardHeader className="pb-2">
             <CardTitle className="text-xl font-bold text-center">Chào mừng đến với trợ lý học tập AI GIRC</CardTitle>
           </CardHeader>
 
           <CardContent className="space-y-4 pb-4">
-
-
-            <div className="flex justify-between gap-2 items-center">
-              <Button className="w-[200px] bg-white hover:bg-white/90 text-blue-700 font-semibold py-2">
-                <Link href="/sign-up">Đăng ký tài khoản</Link>
-              </Button>
-              <Button className="w-[200px] bg-white hover:bg-white/90 text-blue-700 font-semibold py-2">
-              <Link href="/sign-in">Đăng nhập tài khoản</Link>
-            </Button>
-            </div>
-
-            {hasUsedGuestMode ? (
-              <div className="flex flex-col justify-center items-center">
-                <div className="text-center">Thời gian còn lại: {formattedCountdown}</div>
-                <Button
-                  onClick={handleChatbot}
-                  className="w-full bg-transparent border border-white hover:bg-white/10 text-white font-medium py-2 mt-1"
-                >
-                  Quay về hệ thống hỗ trợ học tập
+            <div className="flex flex-col gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <Button className="w-full bg-white hover:bg-white/90 text-blue-700 font-semibold py-2">
+                  <Link href="/sign-up">Đăng ký tài khoản</Link>
+                </Button>
+                <Button className="w-full bg-white hover:bg-white/90 text-blue-700 font-semibold py-2">
+                  <Link href="/sign-in">Đăng nhập tài khoản</Link>
                 </Button>
               </div>
-            ) : (
-              <Button
-                className="w-full bg-transparent border border-white hover:bg-white/10 text-white font-medium py-2"
-                onClick={handleGuest}
-                disabled={isLoading || userAgent === null}
-              >
-                {isLoading ? "Đang xử lý..." :
-                  userAgent === null ? "Đang chuẩn bị..." :
-                    "Trải nghiệm ngay với tài khoản dùng thử"}
-              </Button>
-            )}
+
+              {hasUsedGuestMode ? (
+                <div className="flex flex-col justify-center items-center pt-2">
+                  <div className="text-center mb-2">Thời gian còn lại: {formattedCountdown}</div>
+                  <Button
+                    onClick={handleChatbot}
+                    className="w-full sm:w-3/4 bg-transparent border border-white hover:bg-white/10 text-white font-medium py-2"
+                  >
+                    Quay về hệ thống hỗ trợ học tập
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  className="w-full bg-transparent border border-white hover:bg-white/10 text-white font-medium py-2 mt-2"
+                  onClick={handleGuest}
+                  disabled={isLoading || userAgent === null}
+                >
+                  {isLoading ? "Đang xử lý..." :
+                    userAgent === null ? "Đang chuẩn bị..." :
+                      "Trải nghiệm ngay với tài khoản dùng thử"}
+                </Button>
+              )}
+            </div>
           </CardContent>
 
           <CardFooter className="pt-0 pb-4 text-center text-xs text-white/80">

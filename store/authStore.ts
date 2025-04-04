@@ -21,12 +21,15 @@ interface AuthState {
   setSession_id: (session_id: number) => void;
 }
 
+const isClient = typeof window !== 'undefined';
+
 export const useAuthStore = create<AuthState>((set) => ({
   accessToken: Cookies.get('access_token') || null,
-  guestToken: Cookies.get('guest_token') || localStorage.getItem('guestToken') || null,
+  guestToken: Cookies.get('guest_token') || (isClient ? localStorage.getItem('guestToken') : null),
   session_Id: Cookies.get('session_id') || null,
   userData: Cookies.get('user') ? JSON.parse(Cookies.get('user') as string) : null,
-  isGuestMode: !!Cookies.get('guest_token') || !!localStorage.getItem('guestToken'),
+  isGuestMode:
+    !!Cookies.get('guest_token') || (isClient ? !!localStorage.getItem('guestToken') : false),
 
   setAccessToken: (token: string) => {
     set({ accessToken: token });
@@ -35,7 +38,10 @@ export const useAuthStore = create<AuthState>((set) => ({
 
   setGuestToken: (token: string) => {
     set({ guestToken: token, isGuestMode: true });
-    Cookies.set('guest_token', token, { expires: 1/48 }); // expires in 30 minutes (1/48 of a day)
+    Cookies.set('guest_token', token, { expires: 1 / 48 }); // 30 phút
+    if (isClient) {
+      localStorage.setItem('guestToken', token);
+    }
   },
 
   setSession_id: (ssID: number) => {
@@ -49,7 +55,6 @@ export const useAuthStore = create<AuthState>((set) => ({
       address: userFromServer.noi_o,
       sub: userFromServer.sub,
     };
-
     set({ userData: user });
     Cookies.set('user', JSON.stringify(user), { expires: 7 });
   },
@@ -62,9 +67,11 @@ export const useAuthStore = create<AuthState>((set) => ({
 
   clearGuestToken: () => {
     set({ guestToken: null, isGuestMode: false });
-    localStorage.removeItem('guestToken');
-    localStorage.removeItem('hasUsedGuestMode');
-    localStorage.removeItem('guestCountdownEnd');
     Cookies.remove('guest_token');
+    if (isClient) {
+      localStorage.removeItem('guestToken');
+      localStorage.removeItem('hasUsedGuestMode');
+      localStorage.removeItem('guestCountdownEnd');
+    }
   },
 }));

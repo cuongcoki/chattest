@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import { Button } from "../ui/button";
 import { useCountdownStore } from "@/store/countdownStore";
 import { useState, useEffect } from "react";
-import { CircleHelp } from "lucide-react";
 
 export default function Header() {
     const { userData, clearAccessToken } = useAuthStore();
