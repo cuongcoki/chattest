@@ -146,7 +146,7 @@ export default function History() {
   return (
     <div className="w-full md:w-1/4 bg-blue-50 dark:bg-slate-800 rounded-lg p-4 shadow-md transition-colors">
       <div className="flex justify-between items-start mb-3">
-        <h4 className="text-blue-800 dark:text-white font-bold text-sm md:text-xl text-center">
+        <h4 className="text-blue-800 dark:text-white font-bold text-sm md:text-[17px] text-center">
           LỊCH SỬ TRA CỨU HỌC TẬP
         </h4>
 

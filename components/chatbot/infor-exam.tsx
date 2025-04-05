@@ -117,7 +117,9 @@ export default function InforExam() {
                 {isVisible ? (<X />) : (<PanelTopOpen />)}
             </Button>
             <div className="flex flex-col justify-between items-center mb-4">
-                <h2 className="text-blue-800 font-bold  text-sm md:text-xl text-center mb-2 dark:text-white">THAM KHẢO ĐỀ THI TỐT NGHIỆP THPT</h2>
+                <h2 className="hidden md:flex text-blue-800 font-bold  text-sm md:text-[17px] text-center mb-2 dark:text-white">THAM KHẢO ĐỀ THI </h2>
+                <h2 className="hidden md:flex text-blue-800 font-bold  text-sm md:text-[17px] text-center mb-2 dark:text-white">TỐT NGHIỆP THPT</h2>
+                <h2 className="md:hidden flex text-blue-800 font-bold  text-sm md:text-lg text-center mb-2 dark:text-white">THAM KHẢO ĐỀ THI TỐT NGHIỆP THPT</h2>
                 {isVisible && (
                     <div className={`relative flex items-center gap-2 ${isVisible}`}>
                         <div className="font-bold text-lg">Chọn năm:</div>
