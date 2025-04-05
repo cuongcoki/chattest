@@ -29,11 +29,11 @@ export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
     return (
 
 
-        <div className="w-full max-w-3xl mx-auto  relative">
+        <div className="w-full max-w-3xl mx-auto  relative dark:bg-slate-700">
             <form
                 onSubmit={handleSubmit}
             >
-                <div className=" bg-background relative mx-6  flex items-center py-1  text-sm" >
+                <div className="dark:bg-slate-700  bg-background relative mx-6  flex items-center py-1  text-sm" >
                     <AutoResizeTextarea
                         onKeyDown={handleKeyDown}
                         onChange={(v) => setInput(v)}

@@ -140,55 +140,54 @@ export default function History() {
     router.push("/sign-up");
   };
 
-  console.log("userData",userData)
+  console.log("userData", userData)
 
   //=============================================================== [Render Component] ===============================================================
   return (
-    <div className="w-full md:w-1/4 bg-blue-50 rounded-lg p-4 shadow-md">
+    <div className="w-full md:w-1/4 bg-blue-50 dark:bg-slate-800 rounded-lg p-4 shadow-md transition-colors">
       <div className="flex justify-between items-start mb-3">
-        <h4 className="text-blue-800 font-bold text-xl ">LỊCH SỬ TRA CỨU HỌC TẬP</h4>
+        <h4 className="text-blue-800 dark:text-white font-bold text-xl">
+          LỊCH SỬ TRA CỨU HỌC TẬP
+        </h4>
 
-        {
-          userData !== null ? (
-            <Button
-              size="icon"
-              onClick={createNewSession}
-              className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-full  shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
-            >
-              <IconCirclePlusFilled />
-            </Button>
-          ) : (
-            <Dialog>
-              <DialogTrigger asChild>
+        {userData !== null ? (
+          <Button
+            size="icon"
+            onClick={createNewSession}
+            className=" bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-full shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
+          >
+            <IconCirclePlusFilled />
+          </Button>
+        ) : (
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                size="icon"
+                className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-full shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
+              >
+                <IconCirclePlusFilled />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogDescription className="text-xl text-gray-800 dark:text-gray-100">
+                  Hãy đăng ký là thành viên để sử dụng tính năng này
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter>
                 <Button
-                  size="icon"
-                  className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-full  shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
+                  onClick={handleSignIn}
+                  className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-md px-6 py-2 shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
                 >
-                  <IconCirclePlusFilled />
+                  ĐĂNG KÝ
                 </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogDescription className="text-xl">
-                    Hãy đăng ký là thành viên để sử dụng tính năng này
-                  </DialogDescription>
-                </DialogHeader>
-                <DialogFooter>
-                  <Button
-                    onClick={handleSignIn}
-                    className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-md px-6 py-2 shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
-                  >
-                    ĐĂNG KÝ
-                  </Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          )
-        }
-
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        )}
       </div>
 
-      <ScrollArea className="md:max-h-[400px] max-h-[200px] ">
+      <ScrollArea className="md:max-h-[400px] max-h-[200px]">
         <div className="md:max-h-[400px] max-h-[200px]">
           {messagesHistory.length > 0 ? (
             <div className="space-y-2">
@@ -196,38 +195,34 @@ export default function History() {
                 <div key={item.session_id} className="flex items-center">
                   <span
                     onClick={() => handleSaveLocalStorage(item.session_id)}
-                    className={`flex items-center justify-between gap-2  p-2 sm:p-3 rounded-lg cursor-pointer w-full transition-all duration-300 ease-in-out 
-      ${sessionId === null
-                        ? Number(localStorage.getItem('sessionId')) === item.session_id
+                    className={`flex items-center justify-between gap-2 p-2 sm:p-3 rounded-lg cursor-pointer w-full transition-all duration-300 ease-in-out 
+                ${sessionId === null
+                        ? Number(localStorage.getItem("sessionId")) === item.session_id
+                          ? "bg-blue-600 dark:bg-slate-700 text-white shadow-md"
+                          : "bg-blue-100 dark:bg-slate-700 hover:bg-blue-500 hover:text-white text-blue-800 dark:text-white"
                         : sessionId === item.session_id
-                          ? "bg-blue-600 shadow-md text-white"
-                          : "hover:bg-blue-500 hover:text-white text-blue-800 bg-blue-100"
+                          ? "bg-blue-600 dark:bg-slate-700 text-white shadow-md"
+                          : "bg-blue-100 dark:bg-slate-700 hover:bg-blue-500 hover:text-white text-blue-800 dark:text-white"
                       }`}
                   >
                     <span>{item.title || "Không có tiêu đề"}</span>
                     <button onClick={(e) => handleDeleteSession(item.session_id, e)}>
                       <Trash
-                        className={` text-blue-600 font-semibold rounded-full shadow-md 
-               hover:text-red-600 transition-all duration-300 ease-in-out  ${sessionId === null
-                            ? Number(localStorage.getItem('sessionId')) === item.session_id
-                            : sessionId === item.session_id
-                              ? "bg-blue-600 shadow-md text-white"
-                              : "hover:bg-blue-500 hover:text-white text-blue-800 "
-                          }`}
+                        className={`text-while dark:text-white hover:text-red-600 transition-all duration-300 ease-in-out`}
                       />
                     </button>
                   </span>
-
                 </div>
               ))}
             </div>
           ) : (
-            <div className="flex items-center justify-center h-24 text-gray-500 italic">
+            <div className="flex items-center justify-center h-24 text-gray-500 dark:text-gray-400 italic">
               Không có lịch sử chat
             </div>
           )}
         </div>
       </ScrollArea>
     </div>
+
   );
 }

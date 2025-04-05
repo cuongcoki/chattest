@@ -83,7 +83,7 @@ export default function CardVideo() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
     return (
-        <div className="px-4">
+        <div className="px-4 ">
 
             {isVisible ? (
                 <div className={`w-full max-w-full mx-auto relative `}>
@@ -101,13 +101,15 @@ export default function CardVideo() {
                                 align: "start",
                             }}
                         >
-                            <CarouselContent className="flex">
+                            <CarouselContent className="flex dark:bg-white">
                                 {videoData.map((video) => (
-                                    <CarouselItem key={video.id} className="w-full xl:basis-1/5 md:basis-1/4">
-                                        <div className="bg-white rounded-lg shadow-md p-2  flex flex-col items-center">
+                                    <CarouselItem key={video.id} className="w-full xl:basis-1/5 md:basis-1/4 dark:bg-black">
+                                        <div className="bg-white rounded-lg shadow-md p-2  flex flex-col items-center dark:bg-slate-800 dark:text-white">
                                             <TooltipProvider>
                                                 <Tooltip>
-                                                    <TooltipTrigger> <h4 className="text-md font-semibold mb-2">{video.title.substring(0, 20)}...</h4></TooltipTrigger>
+                                                    <TooltipTrigger>
+                                                        <h4 className="text-md font-semibold mb-2 dark:text-white">{video.title.substring(0, 20)}...</h4>
+                                                    </TooltipTrigger>
                                                     <TooltipContent className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-md shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out">
                                                         <p>{video.title}</p>
                                                     </TooltipContent>
@@ -136,7 +138,7 @@ export default function CardVideo() {
                     )}
                 </div>
             ) : (
-                <div className=" bg-blue-50 h-20 mb-5 p-4  rounded-lg  w-full mx-auto  shadow-md relative">
+                <div className=" bg-blue-50 h-20 mb-5 p-4  rounded-lg  w-full mx-auto  shadow-md relative dark:bg-slate-800">
                     <div className="flex flex-col justify-between items-center mb-4">
                         <Button
                             onClick={toggleCarousel}
@@ -145,7 +147,7 @@ export default function CardVideo() {
                         >
                             {isVisible ? (<X />) : (<PanelTopOpen />)}
                         </Button>
-                        <h2 className="text-blue-800 font-bold text-xl mb-2">THAM KHẢO VIDEO HỌC TẬP</h2>
+                        <h2 className="text-blue-800 font-bold text-xl mb-2 dark:text-white">THAM KHẢO VIDEO HỌC TẬP</h2>
                     </div>
                 </div>
             )}

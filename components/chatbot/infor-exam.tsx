@@ -108,7 +108,7 @@ export default function InforExam() {
     }, []);
 
     return (
-        <div className="w-full md:w-1/4 bg-blue-50 rounded-lg p-4 shadow-md flex flex-col gap-2 relative">
+        <div className="w-full md:w-1/4 bg-blue-50 rounded-lg p-4 shadow-md flex flex-col gap-2 relative dark:bg-slate-800">
             <Button
                 onClick={toggleCarousel}
                 size="icon"
@@ -117,7 +117,7 @@ export default function InforExam() {
                 {isVisible ? (<X />) : (<PanelTopOpen />)}
             </Button>
             <div className="flex flex-col justify-between items-center mb-4">
-                <h2 className="text-blue-800 font-bold text-xl mb-2">THAM KHẢO ĐỀ THI TỐT NGHIỆP THPT</h2>
+                <h2 className="text-blue-800 font-bold text-xl mb-2 dark:text-white">THAM KHẢO ĐỀ THI TỐT NGHIỆP THPT</h2>
                 {isVisible && (
                     <div className={`relative flex items-center gap-2 ${isVisible}`}>
                         <div className="font-bold text-xl">Chọn năm:</div>
@@ -163,7 +163,7 @@ export default function InforExam() {
                                                         rel="noopener noreferrer"
                                                         className="text-green-600 hover:underline flex justify-center items-center "
                                                     >
-                                                        <div className="flex w-[150px]">
+                                                        <div className="flex w-[150px] dark:text-white">
                                                             <CheckIcon className="mr-3" /> <span className="text-xl">Môn: {pdfFile.name}</span>
                                                         </div>
                                                     </a>

@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { Button } from "../ui/button";
 import { useCountdownStore } from "@/store/countdownStore";
 import { useState, useEffect } from "react";
+import { ModeToggle } from "../ui/mode-toggle";
 
 export default function Header() {
     const { userData, clearAccessToken } = useAuthStore();
@@ -90,14 +91,16 @@ export default function Header() {
                     )}
                 </h1>
 
-                    <a
-                        href={`/userguide/Hướng dẫn sử dụng.pdf`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:underline flex justify-center items-center "
-                    >
-                             <span className="text-xl">Hướng dẫn sử dụng ?</span>
-                    </a>
+
+
+                <a
+                    href={`/userguide/Hướng dẫn sử dụng.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:underline flex justify-center items-center "
+                >
+                    <span className="text-xl">Hướng dẫn sử dụng ?</span>
+                </a>
 
                 {userData === null ? (
                     <div className="flex gap-2">
@@ -113,14 +116,20 @@ export default function Header() {
                         >
                             ĐĂNG NHẬP
                         </Button>
+                        <ModeToggle />
                     </div>
                 ) : (
-                    <Button
-                        onClick={handleLogout}
-                        className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-md px-6 py-2 shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
-                    >
-                        ĐĂNG XUẤT
-                    </Button>
+                    <div className=" flex justify-center items-center gap-2">
+                        <Button
+                            onClick={handleLogout}
+                            className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-md px-6 py-2 shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
+                        >
+                            ĐĂNG XUẤT
+                        </Button>
+
+                        <ModeToggle />
+                    </div>
+
                 )}
             </div>
         </div>

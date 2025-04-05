@@ -82,7 +82,7 @@ export function ChatMessages({ messages, loading }: ChatMessagesProps) {
                     "rounded-lg px-4 py-2 w-full text-sm shadow relative",
                     message.role === "user"
                       ? "text-white bg-gradient-to-r from-blue-500 to-blue-700"
-                      : "bg-muted text-muted-foreground"
+                      : "bg-muted dark:bg-black text-muted-foreground"
                   )}
                 >
                   <ReactMarkdown

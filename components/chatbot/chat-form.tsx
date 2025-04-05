@@ -61,7 +61,7 @@ export default function ChatForm() {
         e.preventDefault()
 
         if (guestData?.role === "guest" && userData === null) {
-            if (!input.trim()) return toast.error("hãy hỏi chúng tôi . ô nhập đang để trống")
+            if (!input.trim()) return toast.error("Vui lòng nhập câu hỏi")
 
             if (!guestData.guest_token) {
                 toast.error("Đăng nhập hết hạn")
@@ -110,7 +110,7 @@ export default function ChatForm() {
                 setIsLoading(false)
             }
         } else {
-            if (!input.trim()) return toast.error("hãy hỏi chúng tôi . ô nhập đang để trống")
+            if (!input.trim()) return toast.error("Vui lòng nhập câu hỏi")
 
             if (!accessToken) {
                 toast.error("Đăng nhập hết hạn")
@@ -170,15 +170,15 @@ export default function ChatForm() {
     return (
 
 
-        <div className="flex flex-col md:max-h-[490px] max-h-[490px] md:min-h-[490px] overflow-hidden relative justify-between">
+        <div className="dark:bg-slate-800 flex flex-col md:max-h-[490px] max-h-[490px] md:min-h-[490px] overflow-hidden relative justify-between">
 
 
             <ChatMessages messages={messages} loading={isLoading} />
 
 
             <div className="w-full relative ">
-                <div className="max-w-3xl mx-auto relative">
-                    <div className="rounded-3xl p-2 bg-white border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                <div className="max-w-3xl mx-auto relative ">
+                    <div className="rounded-3xl p-2 bg-white border border-gray-200 shadow-sm dark:bg-gray-700 dark:border-gray-700">
                         <ChatInput
                             input={input}
                             setInput={setInput}
