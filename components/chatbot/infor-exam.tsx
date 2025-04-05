@@ -117,17 +117,17 @@ export default function InforExam() {
                 {isVisible ? (<X />) : (<PanelTopOpen />)}
             </Button>
             <div className="flex flex-col justify-between items-center mb-4">
-                <h2 className="text-blue-800 font-bold text-xl mb-2 dark:text-white">THAM KHẢO ĐỀ THI TỐT NGHIỆP THPT</h2>
+                <h2 className="text-blue-800 font-bold  text-sm md:text-xl text-center mb-2 dark:text-white">THAM KHẢO ĐỀ THI TỐT NGHIỆP THPT</h2>
                 {isVisible && (
                     <div className={`relative flex items-center gap-2 ${isVisible}`}>
-                        <div className="font-bold text-xl">Chọn năm:</div>
+                        <div className="font-bold text-lg">Chọn năm:</div>
                         <Select
                             defaultValue="2024"
                             onValueChange={(value) => {
                                 setSelectedYear(value);
                             }}
                         >
-                            <SelectTrigger className="md:w-[150px] w-[100px] text-2xl  border-none  text-black rounded-md shadow-md hover:from-blue-600 hover:to-blue-800">
+                            <SelectTrigger className="md:w-[150px] w-[100px] text-xl  border-none  text-black rounded-md shadow-md hover:from-blue-600 hover:to-blue-800">
                                 <SelectValue
                                     placeholder="năm"
                                 />
@@ -164,7 +164,7 @@ export default function InforExam() {
                                                         className="text-green-600 hover:underline flex justify-center items-center "
                                                     >
                                                         <div className="flex w-[170px] dark:text-white">
-                                                            <CheckIcon className="mr-3" /> <span className="text-xl">{pdfFile.name}</span>
+                                                            <CheckIcon className="mr-3" /> <span className="text-xl md:text-base lg:text-sm font-medium truncate">{pdfFile.name}</span>
                                                         </div>
                                                     </a>
                                                 ) : (

@@ -146,7 +146,7 @@ export default function History() {
   return (
     <div className="w-full md:w-1/4 bg-blue-50 dark:bg-slate-800 rounded-lg p-4 shadow-md transition-colors">
       <div className="flex justify-between items-start mb-3">
-        <h4 className="text-blue-800 dark:text-white font-bold text-xl">
+        <h4 className="text-blue-800 dark:text-white font-bold text-sm md:text-xl text-center">
           LỊCH SỬ TRA CỨU HỌC TẬP
         </h4>
 
@@ -188,7 +188,7 @@ export default function History() {
       </div>
 
       <ScrollArea className="md:max-h-[400px] max-h-[200px]">
-        <div className="md:max-h-[400px] max-h-[200px]">
+        <div className="md:max-h-[400px] max-h-[190px]">
           {messagesHistory.length > 0 ? (
             <div className="space-y-2">
               {messagesHistory.map((item) => (
@@ -205,10 +205,11 @@ export default function History() {
                           : "bg-blue-100 dark:bg-slate-700 hover:bg-blue-500 hover:text-white text-blue-800 dark:text-white"
                       }`}
                   >
-                    <span>{item.title || "Không có tiêu đề"}</span>
+                    <span className="md:text-lg text-sm">{item.title || "Không có tiêu đề"}</span>
                     <button onClick={(e) => handleDeleteSession(item.session_id, e)}>
                       <Trash
-                        className={`text-while dark:text-white hover:text-red-600 transition-all duration-300 ease-in-out`}
+                        size={20}
+                        className={` text-while dark:text-white hover:text-red-600 transition-all duration-300 ease-in-out`}
                       />
                     </button>
                   </span>

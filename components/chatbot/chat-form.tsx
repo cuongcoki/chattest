@@ -170,7 +170,7 @@ export default function ChatForm() {
     return (
 
 
-        <div className="dark:bg-slate-800 flex flex-col md:max-h-[490px] max-h-[490px] md:min-h-[490px] overflow-hidden relative justify-between">
+        <div className="dark:bg-slate-800 flex flex-col md:max-h-[490px] max-h-[600px] md:min-h-[490px] overflow-hidden relative justify-between">
 
 
             <ChatMessages messages={messages} loading={isLoading} />

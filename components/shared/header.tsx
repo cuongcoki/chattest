@@ -80,7 +80,7 @@ export default function Header() {
         <div className="w-full h-auto">
             <Image src={headerbg} alt="Header Background" layout="responsive" />
             <div className="bg-gradient-to-r px-4 py-2 from-green-600 to-green-800 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 justify-between items-center">
-                <h1 className="text-xl text-white">
+                <h1 className="md:text-xl text-sm text-white text-center">
                     {`Họ và tên học sinh: ${userData?.firstName === undefined ? "..." : userData?.firstName} 
    - Tỉnh: ${userData?.address === undefined ? "..." : userData?.address} `}
 
@@ -99,7 +99,7 @@ export default function Header() {
                     rel="noopener noreferrer"
                     className="text-white hover:underline flex justify-center items-center "
                 >
-                    <span className="text-xl">Hướng dẫn sử dụng ?</span>
+                    <span className="md:text-xl text-sm">Hướng dẫn sử dụng ?</span>
                 </a>
 
                 {userData === null ? (
