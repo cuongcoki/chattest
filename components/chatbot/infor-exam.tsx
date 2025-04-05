@@ -34,34 +34,34 @@ export default function InforExam() {
 
     const examPdfs: Record<string, { name: string; link: string }[]> = {
         "2024": [
-            { name: "toán", link: "Toan - 2024.pdf" },
-            { name: "lý", link: "VL - 2024.pdf" },
-            { name: "hóa", link: "Hoa - 2024.pdf" },
-            { name: "văn", link: "Van - 2024.pdf" },
-            { name: "anh", link: "TA - 2024.pdf" },
-            { name: "sử", link: "Su - 2024.pdf" },
-            { name: "địa", link: "Dia - 2024.pdf" },
-            { name: "sinh", link: "Sinh - 2024.pdf" },
+            { name: "Môn toán", link: "Toan - 2024.pdf" },
+            { name: "Môn vật lý", link: "VL - 2024.pdf" },
+            { name: "Môn hóa học", link: "Hoa - 2024.pdf" },
+            { name: "Môn ngữ văn", link: "Van - 2024.pdf" },
+            { name: "Môn tiếng anh", link: "TA - 2024.pdf" },
+            { name: "Môn lịch sử", link: "Su - 2024.pdf" },
+            { name: "Môn địa lý", link: "Dia - 2024.pdf" },
+            { name: "Môn sinh học", link: "Sinh - 2024.pdf" },
         ],
         "2023": [
-            { name: "toán", link: "Toan - 2023.pdf" },
-            { name: "lý", link: "VL - 2023.pdf" },
-            { name: "hóa", link: "Hoa - 2023.pdf" },
-            { name: "văn", link: "Van - 2023.pdf" },
-            { name: "anh", link: "TA - 2023.pdf" },
-            { name: "sử", link: "Su - 2023.pdf" },
-            { name: "địa", link: "Dia - 2023.pdf" },
-            { name: "sinh", link: "Sinh - 2023.pdf" },
+            { name: "Môn toán", link: "Toan - 2023.pdf" },
+            { name: "Môn vật lý", link: "VL - 2023.pdf" },
+            { name: "Môn hóa học", link: "Hoa - 2023.pdf" },
+            { name: "Môn ngữ văn", link: "Van - 2023.pdf" },
+            { name: "Môn tiếng anh", link: "TA - 2023.pdf" },
+            { name: "Môn lịch sử", link: "Su - 2023.pdf" },
+            { name: "Môn địa lý", link: "Dia - 2023.pdf" },
+            { name: "Môn sinh học", link: "Sinh - 2023.pdf" },
         ],
         "2022": [
-            { name: "toán", link: "Toan - 2022.pdf" },
-            { name: "lý", link: "VL - 2022.pdf" },
-            { name: "hóa", link: "Hoa - 2022.pdf" },
-            { name: "văn", link: "Van - 2022.pdf" },
-            { name: "anh", link: "TA - 2022.pdf" },
-            { name: "sử", link: "Su - 2022.pdf" },
-            { name: "địa", link: "Dia - 2022.pdf" },
-            { name: "sinh", link: "Sinh - 2022.pdf" },
+            { name: "Môn toán", link: "Toan - 2022.pdf" },
+            { name: "Môn vật lý", link: "VL - 2022.pdf" },
+            { name: "Môn hóa học", link: "Hoa - 2022.pdf" },
+            { name: "Môn ngữ văn", link: "Van - 2022.pdf" },
+            { name: "Môn tiếng anh", link: "TA - 2022.pdf" },
+            { name: "Môn lịch sử", link: "Su - 2022.pdf" },
+            { name: "Môn địa lý", link: "Dia - 2022.pdf" },
+            { name: "Môn sinh học", link: "Sinh - 2022.pdf" },
         ],
     };
     
@@ -163,8 +163,8 @@ export default function InforExam() {
                                                         rel="noopener noreferrer"
                                                         className="text-green-600 hover:underline flex justify-center items-center "
                                                     >
-                                                        <div className="flex w-[150px] dark:text-white">
-                                                            <CheckIcon className="mr-3" /> <span className="text-xl">Môn: {pdfFile.name}</span>
+                                                        <div className="flex w-[170px] dark:text-white">
+                                                            <CheckIcon className="mr-3" /> <span className="text-xl">{pdfFile.name}</span>
                                                         </div>
                                                     </a>
                                                 ) : (
@@ -202,7 +202,7 @@ export default function InforExam() {
                                 dataImage.map((Item) => {
                                     return (
                                         <CarouselItem key={Item.id}>
-                                            <div className="link-container">
+                                            <div className="link-container w-full">
                                                 <a href="https://tuyensinh.girc.edu.vn/" target="_blank" rel="noopener noreferrer">
                                                     <Image
                                                         src={Item.url}
