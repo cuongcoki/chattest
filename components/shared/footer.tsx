@@ -11,7 +11,7 @@ export default function Footer() {
 
     const fetchTracking = async () => {
         try {
-            const response = await fetch(`http://14.225.211.7:8504/tracking`, {
+            const response = await fetch(`https://aitoan.girc.edu.vn/tracking`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
