@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import headerbg from "../../public/image/Header2.jpg";
 import { useAuthStore } from "@/store/authStore";
@@ -12,6 +13,11 @@ import { ModeToggle } from "../ui/mode-toggle";
 export default function Header() {
     const { userData, clearAccessToken } = useAuthStore();
     const [checkRed, setCheckRed] = useState(false);
+
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const {
         hasUsedGuestMode,
@@ -80,17 +86,26 @@ export default function Header() {
         <div className="w-full h-auto">
             <Image src={headerbg} alt="Header Background" layout="responsive" />
             <div className="bg-gradient-to-r px-4 py-2 from-green-600 to-green-800 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 justify-between items-center">
-                <h1 className="md:text-xl text-sm text-white text-center">
-                    {`Họ và tên học sinh: ${userData?.firstName === undefined ? "..." : userData?.firstName} 
-   - Tỉnh: ${userData?.address === undefined ? "..." : userData?.address} `}
+                {mounted && (
+                    <h1 className="md:text-xl text-sm text-white text-center">
+                        {`Họ và tên học sinh: ${userData?.firstName ?? "..."} 
+- Tỉnh: ${userData?.address ?? "..."}`}
 
-                    {/* Hiển thị "Thời gian còn lại" chỉ khi chưa có userData (tức là guest) */}
-                    {!userData && hasUsedGuestMode && isCountdownActive() && timeLeft >= 0 && (
-                        <>- Thời gian còn lại: <span className={`${checkRed ? "text-red-500 bg-accent items-center mx-2 rounded-full px-2" : ""}`}>{`${formatTime(timeLeft)}`}</span></>
-
-                    )}
-                </h1>
-
+                        {!userData && hasUsedGuestMode && isCountdownActive() && timeLeft >= 0 && (
+                            <>
+                                - Thời gian còn lại:{" "}
+                                <span
+                                    className={`${checkRed
+                                            ? "text-red-500 bg-accent items-center mx-2 rounded-full px-2"
+                                            : ""
+                                        }`}
+                                >
+                                    {formatTime(timeLeft)}
+                                </span>
+                            </>
+                        )}
+                    </h1>
+                )}
 
 
                 <a
@@ -119,7 +134,7 @@ export default function Header() {
                         <ModeToggle />
                     </div>
                 ) : (
-                    <div className=" flex justify-center items-center gap-2">
+                    <div className="flex justify-center items-center gap-2">
                         <Button
                             onClick={handleLogout}
                             className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-md px-6 py-2 shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
@@ -129,7 +144,6 @@ export default function Header() {
 
                         <ModeToggle />
                     </div>
-
                 )}
             </div>
         </div>

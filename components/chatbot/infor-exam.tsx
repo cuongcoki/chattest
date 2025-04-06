@@ -134,7 +134,7 @@ export default function InforExam() {
                                     placeholder="năm"
                                 />
                             </SelectTrigger>
-                            <SelectContent className=" text-black rounded-md shadow-md">
+                            <SelectContent className=" text-black dark:text-white rounded-md shadow-md">
                                 <SelectGroup>
                                     <SelectItem value="2024" >2024</SelectItem>
                                     <SelectItem value="2023" >2023</SelectItem>

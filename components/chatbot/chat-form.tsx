@@ -11,14 +11,12 @@ import { useImageStore } from "@/store/imageStore"
 import { Spinner } from "../providers/spinner"
 import { useGuestStore } from "@/store/useGuestStore"
 
-
 interface ChatSession {
     id: number;
     title: string;
     created_at: string;
     messages: Message[];
 }
-
 
 export default function ChatForm() {
     const [messages, setMessages] = useState<Message[]>([])
@@ -29,8 +27,7 @@ export default function ChatForm() {
     const { sessionId } = useChatStore();
     const { guestData } = useGuestStore();
     const { userData } = useAuthStore();
-    console.log("guestData",guestData)
-    console.log("userData",userData)
+
     const fetchMessages = async () => {
         if (guestData?.role === "guest" && userData === null) {
             const response = await chatMessagesApi(guestData.guest_token, guestData.session_id);
@@ -163,22 +160,14 @@ export default function ChatForm() {
 
     }
 
-
-
-    // console.log("imageFile", imageFile)
-
+  
     return (
 
-
-        <div className="dark:bg-slate-800 flex flex-col md:max-h-[490px] max-h-[600px] md:min-h-[490px] overflow-hidden relative justify-between">
-
-
+        <div className="relative dark:bg-slate-800 flex flex-col md:max-h-[490px] max-h-[600px] md:min-h-[490px] overflow-hidden justify-between">
             <ChatMessages messages={messages} loading={isLoading} />
-
-
             <div className="w-full relative ">
                 <div className="max-w-3xl mx-auto relative ">
-                    <div className="rounded-3xl p-2 bg-white border border-gray-200 shadow-sm dark:bg-gray-700 dark:border-gray-700">
+                    <div className="relative rounded-3xl p-2 bg-white border border-gray-200 shadow-sm dark:bg-gray-700 dark:border-gray-700">
                         <ChatInput
                             input={input}
                             setInput={setInput}
@@ -194,10 +183,7 @@ export default function ChatForm() {
                     </div>
                 </div>
             </div>
-
         </div>
-
-
 
     )
 }
