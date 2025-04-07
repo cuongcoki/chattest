@@ -10,6 +10,7 @@ import toast from "react-hot-toast"
 import { useImageStore } from "@/store/imageStore"
 import { Spinner } from "../providers/spinner"
 import { useGuestStore } from "@/store/useGuestStore"
+import { useLatexStore } from "@/store/latexStore"
 
 interface ChatSession {
     id: number;
@@ -27,7 +28,8 @@ export default function ChatForm() {
     const { sessionId } = useChatStore();
     const { guestData } = useGuestStore();
     const { userData } = useAuthStore();
-
+    const { latexValue } = useLatexStore();
+    console.log("latexValue",latexValue)
     const fetchMessages = async () => {
         if (guestData?.role === "guest" && userData === null) {
             const response = await chatMessagesApi(guestData.guest_token, guestData.session_id);
@@ -160,7 +162,7 @@ export default function ChatForm() {
 
     }
 
-  
+
     return (
 
         <div className="relative dark:bg-slate-800 flex flex-col md:max-h-[490px] max-h-[600px] md:min-h-[490px] overflow-hidden justify-between">
