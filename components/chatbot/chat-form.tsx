@@ -46,7 +46,7 @@ export default function ChatForm() {
             const chatSession = response as ChatSession;
             setMessages(chatSession.messages);
 
-            console.log(response);
+            // console.log(response);
         }
     };
     useEffect(() => {
@@ -67,7 +67,6 @@ export default function ChatForm() {
             if (!guestData.session_id) {
                 return
             }
-
 
             setPreview(null);
             // Thêm tin nhắn của người dùng vào danh sách

@@ -43,19 +43,44 @@ interface ChatInputProps {
 }
 
 
-export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
+export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInputProps) {
     const { preview } = useImageStore();
     const { setLatexValue, latexValue } = useLatexStore();
     const [open, setOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-
         if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault()
-            handleSubmit(e)
+            e.preventDefault();
+            if (!isLoading) {
+                handleSubmit(e);
+            }
         }
     }
+    
+
+    useEffect(() => {
+        const handleGlobalKeyDown = (e: KeyboardEvent) => {
+            const activeElement = document.activeElement;
+            const isTypingField = activeElement instanceof HTMLTextAreaElement ||
+                activeElement instanceof HTMLInputElement;
+    
+            if (isTypingField) return;
+    
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                if (!isLoading) {
+                    handleSubmit(e as unknown as React.FormEvent);
+                }
+            }
+        };
+    
+        window.addEventListener('keydown', handleGlobalKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleGlobalKeyDown);
+        };
+    }, [handleSubmit, isLoading]);
+    
 
     const importToMain = () => {
         if (latexValue.trim() !== '') {
@@ -135,12 +160,12 @@ export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
                                     <Tooltip>
                                         <TooltipTrigger asChild >
                                             <div>
-                                                <div className='hidden  mr-2 border p-2 rounded-full md:flex justify-center items-center gap-1'>
+                                                {/* <div className='hidden  mr-2 border p-2 rounded-full md:flex justify-center items-center gap-1'>
                                                     <p className="text-xs text-gray-400 ">Xem đoạn chat</p>
                                                     <File size={16} />
-                                                </div>
-                                                <div className='md:hidden flex p-2 rounded-full '>
-                                                    <File size={16} />
+                                                </div> */}
+                                                <div className=' flex p-2 rounded-full '>
+                                                    <File size={18} />
                                                 </div>
                                             </div>
                                         </TooltipTrigger>
@@ -190,19 +215,19 @@ export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
                                     <Tooltip>
                                         <TooltipTrigger asChild>
                                             <div>
-                                                <div className='hidden mr-2 border p-2 rounded-full md:flex justify-center items-center gap-1'>
+                                                {/* <div className='hidden mr-2 border p-2 rounded-full md:flex justify-center items-center gap-1'>
                                                     <p className="text-xs text-gray-400">Nhập công thức</p>
                                                     <Keyboard size={16} />
-                                                </div>
-                                                <div className='md:hidden flex p-2 rounded-full'>
-                                                    <Keyboard size={16} />
+                                                </div> */}
+                                                <div className=' flex p-2 rounded-full'>
+                                                    <Keyboard size={18} />
                                                 </div>
                                             </div>
                                         </TooltipTrigger>
                                         <TooltipContent sideOffset={12}>Mở công thức</TooltipContent>
                                     </Tooltip>
                                 </DialogTrigger>
-                                <DialogContent  onPointerDownOutside={(e) => {
+                                <DialogContent onPointerDownOutside={(e) => {
                                     e.preventDefault();
                                 }}>
                                     <DialogHeader>
@@ -229,7 +254,7 @@ export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
                                                     className="flex items-center justify-center gap-1 md:text-lg px-2 py-1 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-sm shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
                                                     type="button"
                                                 >
-                                                    <Keyboard size={16} />
+                                                    <Keyboard size={20} />
                                                     {keyboardVisible ? 'Ẩn bàn phím' : 'Hiện bàn phím'}
                                                 </button>
                                             </TooltipTrigger>
@@ -264,7 +289,7 @@ export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <Button variant="ghost" size="sm" className=" bottom-1 right-1  rounded-full">
-                                        <ArrowUpIcon size={16} />
+                                        <ArrowUpIcon size={18} />
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent sideOffset={12}>Gửi tin nhắn</TooltipContent>

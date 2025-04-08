@@ -95,7 +95,7 @@ export const sendMessagesApi = async (
   formData.append("text", text);
   formData.append("session_id", String(sessionId));
 
-  console.log("formData", formData.getAll);
+  // console.log("formData", formData.getAll);
 
   return fetch(`${endpoints.chat.sentMessages}`, {
     method: "POST",

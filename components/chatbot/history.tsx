@@ -201,7 +201,7 @@ export default function History() {
                           ? "bg-blue-600 dark:bg-slate-700 text-white shadow-md"
                           : "bg-blue-100 dark:bg-slate-700 hover:bg-blue-500 hover:text-white text-blue-800 dark:text-white"
                         : sessionId === item.session_id
-                          ? "bg-blue-600 dark:bg-slate-700 text-white shadow-md"
+                          ? "bg-blue-600 dark:bg-blue-600 text-white shadow-md"
                           : "bg-blue-100 dark:bg-slate-700 hover:bg-blue-500 hover:text-white text-blue-800 dark:text-white"
                       }`}
                   >
