@@ -109,7 +109,7 @@ export default function Header() {
 
 
                 <a
-                    href={`/userguide/Hướng dẫn sử dụng.pdf`}
+                    href={`/userguide`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:underline flex justify-center items-center "
