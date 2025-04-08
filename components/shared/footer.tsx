@@ -28,7 +28,7 @@ export default function Footer() {
             console.error("Lá»—i API:", error);
         }
     };
-    console.log("tracking", tracking)
+    // console.log("tracking", tracking)
     useEffect(() => {
         fetchTracking();
     }, []);

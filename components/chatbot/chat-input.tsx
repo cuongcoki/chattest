@@ -49,8 +49,6 @@ export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
     const [open, setOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
-    console.log("latexValue", latexValue)
-
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
 
         if (e.key === "Enter" && !e.shiftKey) {
@@ -153,29 +151,21 @@ export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
                                     <DialogHeader>
                                         <DialogTitle>Xem đoạn chat</DialogTitle>
                                         <DialogDescription aria-describedby="description1">
-                                            <div className="md:w-[470px] w-[350px]  ">
-                                                <Card className="w-full">
-                                                    <CardContent className="">
-                                                        <div className="p-4 md:w-full h-[160px] overflow-y-auto font-normal break-words leading-6 ">
-                                                            <ReactMarkdown
-                                                                remarkPlugins={[remarkMath]}
-                                                                rehypePlugins={[rehypeKatex]}
-                                                                components={{
-                                                                    // Override default paragraph to ensure text wrapping
-                                                                    p: ({ children }) => <p className="break-words whitespace-normal">{children}</p>,
-                                                                    // Override pre to ensure code blocks don't overflow
-                                                                    pre: ({ children }) => <pre className="overflow-x-auto max-w-full">{children}</pre>,
-                                                                    // Override math display to ensure formulas fit
-                                                                    // Ensure tables don't overflow
-                                                                    table: ({ children }) => <div className="overflow-x-auto"><table>{children}</table></div>
-                                                                }}
-                                                            >
-                                                                {formatLatexContent(input)}
-                                                            </ReactMarkdown>
-                                                        </div>
-                                                    </CardContent>
-                                                </Card>
-                                            </div>
+                                            <Card className="w-full  ">
+                                                <CardContent className="px-4 py-2 w-full text-sm  relative break-words overflow-wrap-anywhere">
+                                                    <ReactMarkdown
+                                                        remarkPlugins={[remarkMath]}
+                                                        rehypePlugins={[rehypeKatex]}
+                                                        components={{
+                                                            p: ({ ...props }) => <p style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', overflow: 'hidden' }} {...props} />,
+                                                            code: ({ ...props }) => <code style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', overflow: 'hidden' }} {...props} />,
+                                                            pre: ({ ...props }) => <pre style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', overflow: 'hidden', maxWidth: '100%' }} {...props} />,
+                                                        }}
+                                                    >
+                                                        {formatLatexContent(input)}
+                                                    </ReactMarkdown>
+                                                </CardContent>
+                                            </Card>
                                         </DialogDescription>
                                     </DialogHeader>
                                     <DialogFooter>
@@ -212,17 +202,21 @@ export function ChatInput({ input, setInput, handleSubmit }: ChatInputProps) {
                                         <TooltipContent sideOffset={12}>Mở công thức</TooltipContent>
                                     </Tooltip>
                                 </DialogTrigger>
-                                <DialogContent onPointerDownOutside={(e) => {
+                                <DialogContent  onPointerDownOutside={(e) => {
                                     e.preventDefault();
                                 }}>
                                     <DialogHeader>
                                         <DialogTitle>Nhập công thức</DialogTitle>
                                         <DialogDescription aria-describedby="description9">
-                                            <MathField
-                                                value={latexValue}
-                                                onChange={(val) => setLatexValue(val)}
-                                                className="w-full"
-                                            />
+
+                                            <div className="w-[370px] sm:w-[470px] md:w-[450px] lg:w-[400px] xl:w-[460px] overflow-hidden">
+                                                <MathField
+                                                    value={latexValue}
+                                                    onChange={(val) => setLatexValue(val)}
+                                                    className="w-full border max-w-full overflow-x-auto"
+                                                />
+                                            </div>
+
                                         </DialogDescription>
                                     </DialogHeader>
                                     <DialogFooter className="flex justify-between items-center">

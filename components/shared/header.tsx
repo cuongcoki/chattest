@@ -44,7 +44,7 @@ export default function Header() {
         const interval = setInterval(() => {
             const remainingTime = getRemainingTime();
             setTimeLeft(remainingTime);
-            console.log("remainingTime", remainingTime);
+            // console.log("remainingTime", remainingTime);
 
             if (remainingTime === 300 && userData === null) {
                 toast.error("Để không bị giới hạn thời gian sử dụng, bạn nên đăng ký là thành viên của hệ thống");
@@ -80,7 +80,7 @@ export default function Header() {
         router.push("/sign-in");
     };
 
-    console.log(checkRed)
+    // console.log(checkRed)
 
     return (
         <div className="w-full h-auto">

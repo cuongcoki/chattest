@@ -7,7 +7,6 @@ import ReactMarkdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import remarkMath from "remark-math";
-import { Spinner } from "../providers/spinner";
 import { ScrollArea } from "../ui/scroll-area";
 import Image from "next/image";
 import quyettam from "../../public/image/image2/2k7.jpg";
@@ -45,15 +44,15 @@ export function ChatMessages({ messages, loading }: ChatMessagesProps) {
 
   if (messages.length === 0) {
     return (
-      <div className="flex items-center justify-center h-full text-center p-4">
+      <div className="relative flex items-center justify-center h-full text-center p-4">
         <div className="max-w-full space-y-2">
           <h2 className=" md:text-2xl text-l font-bold">Chào mừng đến với trợ lý học tập AI GIRC</h2>
           <p className="text-gray-500 dark:text-gray-400">
             Bạn hãy đưa ra yêu cầu , để chúng tôi hỗ trợ bạn!
           </p>
-          <div >
-          <Image src={quyettam} alt="hehe" className="w-full h-[270px] object-contain"/>
-        </div>
+          <div className="absolute left-0 right-0">
+            <Image src={quyettam} alt="hehe" className="w-full h-[270px] object-contain" />
+          </div>
         </div>
       </div>
     );
@@ -73,13 +72,13 @@ export function ChatMessages({ messages, loading }: ChatMessagesProps) {
             >
               <div
                 className={cn(
-                  "flex items-start gap-3 max-w-[80%]",
+                  "flex items-start gap-3 max-w-[80%] sm:max-w-[70%] md:max-w-[60%] lg:max-w-[80%]", // Responsive width
                   message.role === "user" ? "flex-row-reverse" : "flex-row"
                 )}
               >
                 <div
                   className={cn(
-                    "rounded-lg px-4 py-2 w-full text-sm shadow relative",
+                    "rounded-lg px-4 py-2 w-full text-sm shadow relative break-words overflow-wrap-anywhere",
                     message.role === "user"
                       ? "text-white bg-gradient-to-r from-blue-500 to-blue-700"
                       : "bg-muted dark:bg-black text-muted-foreground"
@@ -88,12 +87,23 @@ export function ChatMessages({ messages, loading }: ChatMessagesProps) {
                   <ReactMarkdown
                     remarkPlugins={[remarkMath]}
                     rehypePlugins={[rehypeKatex]}
+                    components={{
+                      p: ({ ...props }) => <p style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', overflow: 'hidden' }} {...props} />,
+                      code: ({ ...props }) => <code style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', overflow: 'hidden' }} {...props} />,
+                      pre: ({ ...props }) => <pre style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', overflow: 'hidden', maxWidth: '100%' }} {...props} />,
+                    }}
                   >
                     {formatLatexContent(message.content)}
                   </ReactMarkdown>
                   {loading && index === messages.length - 1 && (
-                    <div className="absolute  bottom-2 right-2 flex items-center justify-center z-10">
-                      <Spinner className="text-black " size={"small"} />
+                    <div className="w-full bottom-2 right-2 flex items-center justify-center z-10">
+                      <div className="flex items-center justify-center  ">
+                        <div className="flex space-x-2">
+                          <div className="w-1 h-1 rounded-full text-white bg-gradient-to-r from-blue-500 to-blue-700 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                          <div className="w-1 h-1 rounded-full text-white bg-gradient-to-r from-blue-500 to-blue-700 animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                          <div className="w-1 h-1 rounded-full text-white bg-gradient-to-r from-blue-500 to-blue-700 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                        </div>
+                      </div>
                     </div>
                   )}
 

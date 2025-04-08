@@ -84,7 +84,7 @@ export default function Home() {
     if (typeof window !== 'undefined') {
       // Get user agent
       const ua = navigator.userAgent;
-      console.log("User Agent:", ua);
+      // console.log("User Agent:", ua);
       setUserAgent(ua);
 
       // Initial time update
@@ -105,7 +105,7 @@ export default function Home() {
 
       const response = await guestApi(userAgent);
       const dataGuest: DataGuest = response as DataGuest;
-      console.log("dataGuest", dataGuest);
+      // console.log("dataGuest", dataGuest);
 
       // Set guest data in the main store
       setGuestData(dataGuest);

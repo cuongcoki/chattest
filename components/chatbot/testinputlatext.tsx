@@ -77,11 +77,9 @@ export function MathField({ value = '', onChange, className }: MathFieldProps) {
 
 
     return (
-        <div className="w-full">
-            <div 
-                ref={containerRef} 
-                className="md:max-w-[470px] max-w-[340px] border overflow-auto break-words"
-                style={{ minHeight: '2rem', maxHeight: '200px' }}
+        <div > 
+            <div
+                ref={containerRef}
             />
         </div>
     );

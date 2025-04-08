@@ -49,7 +49,7 @@ export function NavMain() {
 
     try {
       const response = await historyApi(userData.sub);
-      console.log("historyApi", response)
+      // console.log("historyApi", response)
       const history: ChatTitleList = response as ChatTitleList;
       if (history?.title_list) {
         setMessagesHistory(history.title_list);
@@ -69,7 +69,7 @@ export function NavMain() {
       return;
     }
     const reponse = await createApi(accessToken);
-    console.log("createt", reponse);
+    // console.log("createt", reponse);
     const createChat: CreateChat = reponse as CreateChat;
     setSessionId(createChat.current_session_id)
     fetchHistoryMessages();

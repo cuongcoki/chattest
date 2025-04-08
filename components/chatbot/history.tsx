@@ -62,7 +62,7 @@ export default function History() {
 
     try {
       const response = await historyApi(userData.sub);
-      console.log("historyApi", response)
+      // console.log("historyApi", response)
       const history: ChatTitleList = response as ChatTitleList;
       if (history?.title_list) {
         setMessagesHistory(history.title_list);
@@ -82,7 +82,7 @@ export default function History() {
       return;
     }
     const reponse = await createApi(accessToken);
-    console.log("createt", reponse);
+    // console.log("createt", reponse);
     const createChat: CreateChat = reponse as CreateChat;
     setSessionId(createChat.current_session_id)
     fetchHistoryMessages();
@@ -113,9 +113,9 @@ export default function History() {
 
     try {
       const response = await deleteChatHistoryApi(accessToken, id);
-      console.log("reponse", response)
+      // console.log("reponse", response)
       const data: DataRe = response as DataRe
-      console.log(data)
+      // console.log(data)
       setSessionId(data.session_id);
       // If the deleted session was the active one, clear sessionId from store and localStorage
       if (sessionId === id || Number(localStorage.getItem('sessionId')) === id) {
@@ -140,7 +140,7 @@ export default function History() {
     router.push("/sign-up");
   };
 
-  console.log("userData", userData)
+  // console.log("userData", userData)
 
   //=============================================================== [Render Component] ===============================================================
   return (
