@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from 'react-hot-toast';
 export const metadata: Metadata = {
   title: "Ôn Tập 2K7",
-  description: "Ôn Tập 2K7",
+  description: "Ôn thi hiệu quả cùng Chatbot AI dành riêng cho học sinh 2K7! Hỏi nhanh – đáp gọn – luyện đề thông minh theo từng môn học. Đồng hành cùng bạn chinh phục kỳ thi tốt nghiệp dễ dàng hơn bao giờ hết.",
 };
 
 export default async function RootLayout({
