@@ -246,7 +246,7 @@ export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInput
                                     </DialogHeader>
                                     <DialogFooter className="flex justify-between items-center">
 
-
+{/* 
                                         <Tooltip>
                                             <TooltipTrigger asChild>
                                                 <button
@@ -259,7 +259,7 @@ export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInput
                                                 </button>
                                             </TooltipTrigger>
                                             <TooltipContent sideOffset={12}>Ctrl + K để tắt/ẩn bàn phím</TooltipContent>
-                                        </Tooltip>
+                                        </Tooltip> */}
 
                                         <button
                                             onClick={() => {

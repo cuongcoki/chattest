@@ -49,7 +49,8 @@ export default function StudyGuide() {
             )}
 
             {/* Main Content */}
-            <div className="px-4 sm:px-6 lg:px-8 mt-72">
+            <div className="px-4 sm:px-6 lg:px-8 ">
+
                 <div className="text-center sticky top-0 z-10 border-b bg-white">
                     <h1 className="text-2xl md:text-3xl font-bold text-blue-700">
                         Hệ Thống Hỗ Trợ Học Tập Cho 2K7
@@ -57,7 +58,7 @@ export default function StudyGuide() {
                     <p className="text-gray-600 mt-2">Hướng dẫn sử dụng đơn giản và hiệu quả</p>
                 </div>
 
-                <div className="mt-80 space-y-8">
+                <div className="mt-5 space-y-8">
                     {/* Cách 1 */}
                     <div className="space-y-4">
                         <h2 className="text-xl font-semibold text-gray-800 ">

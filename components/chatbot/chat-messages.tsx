@@ -50,8 +50,8 @@ export function ChatMessages({ messages, loading }: ChatMessagesProps) {
           <p className="text-gray-500 dark:text-gray-400">
             Bạn hãy đưa ra yêu cầu , để chúng tôi hỗ trợ bạn!
           </p>
-          <div className="absolute left-0 right-0">
-            <Image src={quyettam} alt="hehe" className="w-full h-[270px] object-contain" />
+          <div className="md:absolute left-0 right-0">
+            <Image src={quyettam} alt="ảnh chúc 2k7 thi tốt" className="w-full h-[270px] object-contain" />
           </div>
         </div>
       </div>
