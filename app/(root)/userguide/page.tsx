@@ -52,7 +52,7 @@ export default function StudyGuide() {
             <div className="px-4 sm:px-6 lg:px-8 ">
 
                 <div className="text-center sticky top-0 z-10 border-b bg-white">
-                    <h1 className="text-2xl md:text-3xl font-bold text-blue-700">
+                    <h1 className="text-2xl md:text-3xl font-bold text-blue-700 ">
                         Hệ Thống Hỗ Trợ Học Tập Cho 2K7
                     </h1>
                     <p className="text-gray-600 mt-2">Hướng dẫn sử dụng đơn giản và hiệu quả</p>
@@ -61,7 +61,7 @@ export default function StudyGuide() {
                 <div className="mt-5 space-y-8">
                     {/* Cách 1 */}
                     <div className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-800 ">
+                        <h2 className="text-xl font-semibold text-gray-800  dark:text-white">
                             Cách 1: Nhập văn bản bằng bàn phím và sao chép/dán
                         </h2>
                         <div className="flex justify-center">
@@ -103,7 +103,7 @@ export default function StudyGuide() {
 
                     {/* Cách 2 */}
                     <div className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-800 ">
+                        <h2 className="text-xl font-semibold text-gray-800  dark:text-white">
                             Cách 2: Chọn hình ảnh từ máy tính hoặc chụp dán ảnh
                         </h2>
                         <div className="flex justify-center">
@@ -145,7 +145,7 @@ export default function StudyGuide() {
 
                     {/* Cách 3 */}
                     <div className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-800 ">
+                        <h2 className="text-xl font-semibold text-gray-800  dark:text-white">
                             Cách 3: Bật ô nhập công thức và xem đoạn chat
                         </h2>
 

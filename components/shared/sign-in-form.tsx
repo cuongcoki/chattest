@@ -35,7 +35,7 @@ import LoadingPage from "../../lib/loadingpage1.gif";
 interface User {
   sub: number;
   ho_va_ten: string;
-  noi_o: string;
+  // noi_o: string;
 }
 
 interface Login {

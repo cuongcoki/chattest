@@ -10,22 +10,24 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
-import { Check, ChevronsUpDown, House } from "lucide-react"
+// import { Check, ChevronsUpDown, House } from "lucide-react"
+
+import { House } from "lucide-react"
 
 import LoadingPage from "../../lib/loadingpage1.gif";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+// import {
+//   Command,
+//   CommandEmpty,
+//   CommandGroup,
+//   CommandInput,
+//   CommandItem,
+//   CommandList,
+// } from "@/components/ui/command"
+// import {
+//   Popover,
+//   PopoverContent,
+//   PopoverTrigger,
+// } from "@/components/ui/popover"
 
 import {
   Form,
@@ -41,8 +43,8 @@ import toast from "react-hot-toast"
 import { SignUpSchema } from "@/schema/sign-up-schema"
 
 
-import dataTinh from "../../fakeData/danh_sach_tinh.json";
-import dataTHPT from "../../fakeData/THPT.json"
+// import dataTinh from "../../fakeData/danh_sach_tinh.json";
+// import dataTHPT from "../../fakeData/THPT.json"
 import { registerApi } from "@/api"
 
 import bgs from "../../public/image/Back 2.jpg";
@@ -54,21 +56,21 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
   //state
   const [loading, setLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [open, setOpen] = useState(false)
+  // const [open, setOpen] = useState(false)
 
-  const [open1, setOpen1] = useState(false)
+  // const [open1, setOpen1] = useState(false)
 
   const [showOverlay, setShowOverlay] = useState(false);
 
   const router = useRouter();
 
-  const [selectedProvince, setSelectedProvince] = useState<string>("");
+  // const [selectedProvince, setSelectedProvince] = useState<string>("");
 
-  const selectedProvinceData = dataTHPT.data.find(
-    (province) => province.ma_tinh === selectedProvince
-  );
+  // const selectedProvinceData = dataTHPT.data.find(
+  //   (province) => province.ma_tinh === selectedProvince
+  // );
 
-  const filteredSchools = selectedProvinceData?.data?.data || [];
+  // const filteredSchools = selectedProvinceData?.data?.data || [];
 
   // console.log(selectedProvince)
   // console.log(filteredSchools)
@@ -77,28 +79,28 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
       ho_va_ten: "",
-      sdt: "",
+      // sdt: "",
       email: "",
       password: "",
-      facebook: "",
-      noi_o: "",
-      ten_truong: "",
+      // facebook: "",
+      // noi_o: "",
+      // ten_truong: "",
     },
   });
 
   const onSubmit = async (data: z.infer<typeof SignUpSchema>) => {
     setLoading(true);
     setShowOverlay(false);
-
+    console.log("data", data)
     try {
       const res = await registerApi({
         ho_va_ten: data.ho_va_ten,
-        sdt: data.sdt,
+        // sdt: data.sdt,
         email: data.email,
         password: data.password,
-        facebook: data.facebook,
-        noi_o: data.noi_o,
-        ten_truong: data.ten_truong,
+        // facebook: data.facebook,
+        // noi_o: data.noi_o,
+        // ten_truong: data.ten_truong,
       });
 
       if (res) {
@@ -183,7 +185,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                     )}
                   />
 
-                  <FormField
+                  {/* <FormField
                     control={form.control}
                     name="sdt"
                     render={({ field }) => (
@@ -197,7 +199,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                         <FormMessage />
                       </FormItem>
                     )}
-                  />
+                  /> */}
 
                   <FormField
                     control={form.control}
@@ -205,10 +207,10 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="flex items-center text-gray-700 dark:text-gray-200">
-                          * EMAIL
+                          * TÀI KHOẢN (EMAIL)
                         </FormLabel>
                         <FormControl>
-                          <Input type="email" {...field} />
+                          <Input type="text" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -221,7 +223,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="flex items-center text-gray-700 dark:text-gray-200">
-                          * MẬT KHẨU (8 KÝ TỰ BẤT KỲ)
+                          * MẬT KHẨU (SỐ ĐIỆN THOẠI)
                         </FormLabel>
                         <div className="relative">
                           <FormControl>
@@ -245,7 +247,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                     )}
                   />
 
-                  <FormField
+                  {/* <FormField
                     control={form.control}
                     name="facebook"
                     render={({ field }) => (
@@ -259,9 +261,9 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                         <FormMessage />
                       </FormItem>
                     )}
-                  />
+                  /> */}
 
-                  <FormField
+                  {/* <FormField
                     control={form.control}
                     name="noi_o"
                     render={({ field }) => (
@@ -318,9 +320,9 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                         <FormMessage />
                       </FormItem>
                     )}
-                  />
+                  /> */}
 
-                  <FormField
+                  {/* <FormField
                     control={form.control}
                     name="ten_truong"
                     render={({ field }) => (
@@ -377,7 +379,7 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
                         <FormMessage />
                       </FormItem>
                     )}
-                  />
+                  /> */}
 
                   <Button
                     type="submit"

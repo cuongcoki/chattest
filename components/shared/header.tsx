@@ -6,63 +6,63 @@ import { useAuthStore } from "@/store/authStore";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { Button } from "../ui/button";
-import { useCountdownStore } from "@/store/countdownStore";
+// import { useCountdownStore } from "@/store/countdownStore";
 import { useState, useEffect } from "react";
 import { ModeToggle } from "../ui/mode-toggle";
 
 export default function Header() {
     const { userData, clearAccessToken } = useAuthStore();
-    const [checkRed, setCheckRed] = useState(false);
+    // const [checkRed, setCheckRed] = useState(false);
 
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
         setMounted(true);
     }, []);
 
-    const {
-        hasUsedGuestMode,
-        getRemainingTime,
-        isCountdownActive,
-    } = useCountdownStore();
+    // const {
+    //     hasUsedGuestMode,
+    //     getRemainingTime,
+    //     isCountdownActive,
+    // } = useCountdownStore();
 
     const router = useRouter();
 
     // Thêm state cho thời gian đếm ngược
-    const [timeLeft, setTimeLeft] = useState(0);
+    // const [timeLeft, setTimeLeft] = useState(0);
 
     // Hàm định dạng thời gian
-    const formatTime = (seconds: number) => {
-        const m = Math.floor(seconds / 60).toString().padStart(2, "0");
-        const s = (seconds % 60).toString().padStart(2, "0");
-        return `${m}:${s}`;
-    };
+    // const formatTime = (seconds: number) => {
+    //     const m = Math.floor(seconds / 60).toString().padStart(2, "0");
+    //     const s = (seconds % 60).toString().padStart(2, "0");
+    //     return `${m}:${s}`;
+    // };
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        setTimeLeft(getRemainingTime());
+    //     setTimeLeft(getRemainingTime());
 
-        const interval = setInterval(() => {
-            const remainingTime = getRemainingTime();
-            setTimeLeft(remainingTime);
-            // console.log("remainingTime", remainingTime);
+    //     const interval = setInterval(() => {
+    //         const remainingTime = getRemainingTime();
+    //         setTimeLeft(remainingTime);
+    //         // console.log("remainingTime", remainingTime);
 
-            if (remainingTime === 300 && userData === null) {
-                toast.error("Để không bị giới hạn thời gian sử dụng, bạn nên đăng ký là thành viên của hệ thống");
-                setCheckRed(true)
-            }
+    //         if (remainingTime === 300 && userData === null) {
+    //             toast.error("Để không bị giới hạn thời gian sử dụng, bạn nên đăng ký là thành viên của hệ thống");
+    //             setCheckRed(true)
+    //         }
 
-            if (remainingTime <= 0 && userData === null) {
-                clearInterval(interval);
-                toast.error("Bạn đã hết hạn thời gian sử dụng");
+    //         if (remainingTime <= 0 && userData === null) {
+    //             clearInterval(interval);
+    //             toast.error("Bạn đã hết hạn thời gian sử dụng");
 
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 2000);
-            }
-        }, 1000);
+    //             setTimeout(() => {
+    //                 window.location.href = '/';
+    //             }, 2000);
+    //         }
+    //     }, 1000);
 
-        return () => clearInterval(interval);
-    }, [getRemainingTime]);
+    //     return () => clearInterval(interval);
+    // }, [getRemainingTime]);
 
 
 
@@ -88,10 +88,11 @@ export default function Header() {
             <div className="bg-gradient-to-r px-4 py-2 from-green-600 to-green-800 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 justify-between items-center">
                 {mounted && (
                     <h1 className="md:text-xl text-sm text-white text-center">
-                        {`Họ và tên học sinh: ${userData?.firstName ?? "..."} 
-- Tỉnh: ${userData?.address ?? "..."}`}
+                        {`Họ và tên học sinh: ${userData?.firstName ?? "..."}`}
 
-                        {!userData && hasUsedGuestMode && isCountdownActive() && timeLeft >= 0 && (
+                        {/* {`Họ và tên học sinh: ${userData?.firstName ?? "..."} - Tỉnh: ${userData?.address ?? "..."}`} */}
+
+                        {/* {!userData && hasUsedGuestMode && isCountdownActive() && timeLeft >= 0 && (
                             <>
                                 - Thời gian còn lại:{" "}
                                 <span
@@ -103,7 +104,7 @@ export default function Header() {
                                     {formatTime(timeLeft)}
                                 </span>
                             </>
-                        )}
+                        )} */}
                     </h1>
                 )}
 

@@ -19,7 +19,6 @@ import { guestApi } from "@/api"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
 import { useGuestStore } from "@/store/useGuestStore"
-import { useCountdownStore } from "@/store/countdownStore"
 interface DataGuest {
   access_token: string;
   message: string;
@@ -30,11 +29,11 @@ interface DataGuest {
 // Fixed useCountdown hook
 
 
-const formatTime = (seconds: number) => {
-  const m = Math.floor(seconds / 60).toString().padStart(2, "0");
-  const s = (seconds % 60).toString().padStart(2, "0");
-  return `${m}:${s}`;
-};
+// const formatTime = (seconds: number) => {
+//   const m = Math.floor(seconds / 60).toString().padStart(2, "0");
+//   const s = (seconds % 60).toString().padStart(2, "0");
+//   return `${m}:${s}`;
+// };
 
 export default function Home() {
   const [userAgent, setUserAgent] = useState<string>("");
@@ -42,43 +41,37 @@ export default function Home() {
   const router = useRouter();
 
   // Get auth store methods
-  const { setGuestData, clearGuestData } = useGuestStore();
+  const { setGuestData } = useGuestStore();
 
   // Use countdown store instead of the custom hook
-  const {
-    hasUsedGuestMode,
-    getRemainingTime,
-    startCountdown,
-    resetCountdown,
-    isCountdownActive
-  } = useCountdownStore();
+
 
   // Get and format the remaining time
-  const [timeLeft, setTimeLeft] = useState(0);
+  // const [timeLeft, setTimeLeft] = useState(0);
 
-  useEffect(() => {
-    // Set up timer to update countdown every second
-    const interval = setInterval(() => {
-      const remaining = getRemainingTime();
-      setTimeLeft(remaining);
+  // useEffect(() => {
+  //   // Set up timer to update countdown every second
+  //   const interval = setInterval(() => {
+  //     const remaining = getRemainingTime();
+  //     setTimeLeft(remaining);
 
-      // If countdown reaches zero, reset guest data
-      if (remaining === 0 && hasUsedGuestMode) {
-        resetCountdown();
-        clearGuestData();
-        toast.success("Bạn đã hết thời gian sử dụng vui lòng đăng ký tài khoản");
+  //     // If countdown reaches zero, reset guest data
+  //     if (remaining === 0 && hasUsedGuestMode) {
+  //       resetCountdown();
+  //       clearGuestData();
+  //       toast.success("Bạn đã hết thời gian sử dụng vui lòng đăng ký tài khoản");
 
-        setTimeout(function () {
-          window.location.href = '/';
-        }, 5000);
-      }
-    }, 1000);
+  //       setTimeout(function () {
+  //         window.location.href = '/';
+  //       }, 5000);
+  //     }
+  //   }, 1000);
 
-    return () => clearInterval(interval);
-  }, [getRemainingTime, hasUsedGuestMode, resetCountdown, clearGuestData]);
+  //   return () => clearInterval(interval);
+  // }, [getRemainingTime, hasUsedGuestMode, resetCountdown, clearGuestData]);
 
   // Format time for display
-  const formattedCountdown = formatTime(timeLeft);
+  // const formattedCountdown = formatTime(timeLeft);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -88,20 +81,20 @@ export default function Home() {
       setUserAgent(ua);
 
       // Initial time update
-      setTimeLeft(getRemainingTime());
+      // setTimeLeft(getRemainingTime());
 
       // Check if countdown has expired on page load
-      if (hasUsedGuestMode && !isCountdownActive()) {
-        resetCountdown();
-        clearGuestData();
-      }
+      // if (hasUsedGuestMode && !isCountdownActive()) {
+      //   resetCountdown();
+      //   clearGuestData();
+      // }
     }
-  }, [getRemainingTime, hasUsedGuestMode, isCountdownActive, resetCountdown, clearGuestData]);
+  }, []);
 
   const handleGuest = async () => {
     try {
       setIsLoading(true);
-      if (!userAgent) throw new Error("Không thể xác định thiết bị");
+      // if (!userAgent) throw new Error("Không thể xác định thiết bị");
 
       const response = await guestApi(userAgent);
       const dataGuest: DataGuest = response as DataGuest;
@@ -111,7 +104,7 @@ export default function Home() {
       setGuestData(dataGuest);
 
       // Start a 30-minute countdown using the countdown store
-      startCountdown(60);
+      // startCountdown(60);
 
       toast.success(dataGuest.message);
       router.push("/chatbot");
@@ -123,10 +116,10 @@ export default function Home() {
     }
   };
 
-  const handleChatbot = () => {
-    router.push("/chatbot");
-  };
-  
+  // const handleChatbot = () => {
+  //   router.push("/chatbot");
+  // };
+
   return (
     <div className={cn("relative flex flex-col gap-6 min-h-screen")} >
       {/* Background image */}
@@ -156,39 +149,42 @@ export default function Home() {
             <div className="flex flex-col gap-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Button className="w-full bg-white hover:bg-white/90 text-blue-700 font-semibold py-2">
-                  <Link href="/sign-up">Đăng ký tài khoản</Link>
+                  <Link href="/sign-up">Đăng ký miễn phí</Link>
                 </Button>
                 <Button className="w-full bg-white hover:bg-white/90 text-blue-700 font-semibold py-2">
                   <Link href="/sign-in">Đăng nhập tài khoản</Link>
                 </Button>
               </div>
 
-              {hasUsedGuestMode ? (
-                <div className="flex flex-col justify-center items-center pt-2">
-                  <div className="text-center mb-2">Thời gian còn lại: {formattedCountdown}</div>
-                  <Button
+              {/* {guest_token ? ( */}
+              {/*  <div className="flex flex-col justify-center items-center pt-2">
+                  {/* <div className="text-center mb-2">Thời gian còn lại: {formattedCountdown}</div> */}
+              {/*   <Button
                     onClick={handleChatbot}
                     className="w-full sm:w-3/4 bg-transparent border border-white hover:bg-white/10 text-white font-medium py-2"
                   >
                     Quay về hệ thống hỗ trợ học tập
                   </Button>
-                </div>
-              ) : (
-                <Button
-                  className="w-full bg-transparent border border-white hover:bg-white/10 text-white font-medium py-2 mt-2"
-                  onClick={handleGuest}
-                  disabled={isLoading || userAgent === null}
-                >
-                  {isLoading ? "Đang xử lý..." :
-                    userAgent === null ? "Đang chuẩn bị..." :
-                      "Trải nghiệm ngay với tài khoản dùng thử"}
-                </Button>
-              )}
+                </div> */}
+              {/* ) : ( */}
+              <Button
+                className="w-full bg-transparent border border-white hover:bg-white/10 text-white font-medium py-2 mt-2"
+                onClick={handleGuest}
+                disabled={isLoading || userAgent === null}
+              >
+                {isLoading ? "Đang xử lý..." :
+                  userAgent === null ? "Đang chuẩn bị..." :
+                    "Trải nghiệm ngay với tài khoản dùng thử"}
+              </Button>
+              {/*)} */}
             </div>
           </CardContent>
 
-          <CardFooter className="pt-0 pb-4 text-center text-xs text-white/80">
-            Tham gia ngay hôm nay ! còn 50 suất dùng thử !!!
+          <CardFooter className="pt-0 pb-4 text-center flex justify-center items-center  text-xs text-white/80">
+            <span>
+              Khám phá để thành công !
+
+            </span>
           </CardFooter>
         </Card>
         <div className="text-balance text-center text-xs text-white font-medium [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
