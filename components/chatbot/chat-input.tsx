@@ -246,12 +246,12 @@ export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInput
                                     </DialogHeader>
                                     <DialogFooter className="flex justify-between items-center">
 
-{/* 
+
                                         <Tooltip>
                                             <TooltipTrigger asChild>
                                                 <button
                                                     onClick={toggleKeyboardVisibility}
-                                                    className="flex items-center justify-center gap-1 md:text-lg px-2 py-1 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-sm shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
+                                                    className="md:hidden flex items-center justify-center gap-1 md:text-lg px-2 py-1 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-sm shadow-md hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 transition-all duration-300 ease-in-out"
                                                     type="button"
                                                 >
                                                     <Keyboard size={20} />
@@ -259,7 +259,7 @@ export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInput
                                                 </button>
                                             </TooltipTrigger>
                                             <TooltipContent sideOffset={12}>Ctrl + K để tắt/ẩn bàn phím</TooltipContent>
-                                        </Tooltip> */}
+                                        </Tooltip>
 
                                         <button
                                             onClick={() => {
