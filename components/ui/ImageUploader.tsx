@@ -70,14 +70,14 @@ export const ImageUploader: React.FC = () => {
       <div className="relative">
         <div
           {...getRootProps()}
-          className="border-2 border-dashed border-gray-300 rounded-lg p-2 hover:border-blue-500 transition-colors cursor-pointer"
+          className=" md:border-2 border-dashed border-gray-300 rounded-lg p-2 hover:border-blue-500 transition-colors cursor-pointer"
         >
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <ImagePlus className="w-6 h-6 text-gray-400" />
-              <Clipboard className="w-6 h-6 text-gray-400" />
+              <ImagePlus className="  md:w-6 md:h-6 w-5 h-5 md:text-gray-400" />
+              <Clipboard className="w-6 h-6 text-gray-400 hidden md:flex " />
             </div>
-            <div className="flex flex-col">
+            <div className="hidden md:flex flex-col">
               <p className="text-xs text-gray-500">
                 Kéo thả, nhấp hoặc <span className="font-medium">dán (Ctrl+V)</span> để chọn ảnh
               </p>

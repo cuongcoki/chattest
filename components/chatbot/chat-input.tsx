@@ -97,14 +97,6 @@ export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInput
             .replace(/\\\)/g, "$");
     };
 
-
-    const toggleKeyboardShortcut = (event: KeyboardEvent) => {
-        if (event.ctrlKey && event.key.toLowerCase() === 'k') {
-            event.preventDefault();
-            toggleKeyboardVisibility();
-        }
-    };
-
     const [keyboardVisible, setKeyboardVisible] = useState(false);
 
     const toggleKeyboardVisibility = () => {
@@ -117,6 +109,15 @@ export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInput
                 vk.show();
                 setKeyboardVisible(true);
             }
+        }
+    };
+
+
+    const toggleKeyboardShortcut = (event: KeyboardEvent) => {
+        if (event.ctrlKey && event.key.toLowerCase() === 'k') {
+            setIsOpen(true)
+            event.preventDefault();
+            toggleKeyboardVisibility();
         }
     };
 
@@ -176,7 +177,7 @@ export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInput
                                     <DialogHeader>
                                         <DialogTitle>Xem đoạn chat</DialogTitle>
                                         <DialogDescription aria-describedby="description1">
-                                            <Card className="w-full  ">
+                                            <Card className="w-full h-[450px]  overflow-y-auto">
                                                 <CardContent className="px-4 py-2 w-full text-sm  relative break-words overflow-wrap-anywhere">
                                                     <ReactMarkdown
                                                         remarkPlugins={[remarkMath]}
@@ -234,18 +235,17 @@ export function ChatInput({ input, setInput, handleSubmit,isLoading }: ChatInput
                                         <DialogTitle>Nhập công thức</DialogTitle>
                                         <DialogDescription aria-describedby="description9">
 
-                                            <div className="w-[370px] sm:w-[470px] md:w-[450px] lg:w-[400px] xl:w-[460px] overflow-hidden">
+                                            <div className="w-[370px] sm:w-[470px] md:w-[450px] lg:w-[400px] xl:w-[460px] ">
                                                 <MathField
                                                     value={latexValue}
                                                     onChange={(val) => setLatexValue(val)}
-                                                    className="w-full border max-w-full overflow-x-auto"
+                                                    className="w-full border max-w-full "
                                                 />
                                             </div>
 
                                         </DialogDescription>
                                     </DialogHeader>
                                     <DialogFooter className="flex justify-between items-center">
-
 
                                         <Tooltip>
                                             <TooltipTrigger asChild>

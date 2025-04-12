@@ -154,9 +154,9 @@ export function SignUpForm({ className, ...props }: React.ComponentProps<"div">)
         </div>
 
         {/* Content with relative positioning to appear above background */}
-        <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-4 py-8 overflow-auto">
+        <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-4 py-8 ">
           <Card className="overflow-hidden max-w-md w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm my-4 border border-gray-200 dark:border-gray-700">
-            <CardContent className="grid p-0 max-h-[80vh] overflow-y-auto">
+            <CardContent className="grid p-0 ">
               <Form {...form}>
                 <div className="flex flex-col items-center text-center p-6 pb-0 relative sticky top-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-10">
                   <Link href="/">

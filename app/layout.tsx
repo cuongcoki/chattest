@@ -36,7 +36,8 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "bg-background overscroll-none overflow-y-auto overflow-hidden no-scrollbar  font-sans antialiased",
+          // "bg-background overscroll-none overflow-y-auto overflow-hidden no-scrollbar  font-sans antialiased",
+          "bg-background overscroll-none overflow-y-auto  h-screen  font-sans antialiased",
           activeThemeValue ? `theme-${activeThemeValue}` : "",
           isScaled ? "theme-scaled" : ""
         )}
